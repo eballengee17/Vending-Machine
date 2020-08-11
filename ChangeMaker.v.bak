@@ -1,0 +1,31 @@
+module VendingMachine(reset, clock, choice, payment, change);
+	input reset;
+	input clock;
+	input [1:0] choice;
+	input [7:0] payment;
+	output [7:0] change;
+	reg [7:0] tempchange;
+	
+	//4 choices: 00: granola bar (.75), 01: chips(.85), 10: candy(.50), 11: gum (.25)
+	
+	always @(choice, payment)
+		begin
+			if (choice == 2'b00)
+				begin
+					tempchange = payment - 75;
+				end
+			else if (choice == 2'b01)
+				begin
+					tempchange = payment - 85;
+				end
+			else if (choice == 2'b10)
+				begin
+					tempchange = payment - 50;
+				end
+			else
+				begin
+					tempchange = payment - 25;
+				end
+		end
+		assign change = tempchange;
+endmodule
