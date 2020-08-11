@@ -1,0 +1,77 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "change[0]",
+					"strict" : false
+				},
+				{
+					"name" : "change[1]",
+					"strict" : false
+				},
+				{
+					"name" : "change[2]",
+					"strict" : false
+				},
+				{
+					"name" : "change[3]",
+					"strict" : false
+				},
+				{
+					"name" : "o_Segment_A",
+					"strict" : false
+				},
+				{
+					"name" : "o_Segment_B",
+					"strict" : false
+				},
+				{
+					"name" : "o_Segment_C",
+					"strict" : false
+				},
+				{
+					"name" : "o_Segment_D",
+					"strict" : false
+				},
+				{
+					"name" : "o_Segment_E",
+					"strict" : false
+				},
+				{
+					"name" : "o_Segment_F",
+					"strict" : false
+				},
+				{
+					"name" : "o_Segment_G",
+					"strict" : false
+				},
+				{
+					"name" : "Binary_Input1[0]",
+					"strict" : false
+				},
+				{
+					"name" : "Binary_Input2[0]",
+					"strict" : false
+				},
+				{
+					"name" : "Binary_Input2[1]",
+					"strict" : false
+				},
+				{
+					"name" : "Binary_Input1[1]",
+					"strict" : false
+				},
+				{
+					"name" : "Binary_Input2[2]",
+					"strict" : false
+				},
+				{
+					"name" : "Binary_Input2[3]",
+					"strict" : false
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,73 @@
+|VendingMachine
+reset => reset.IN1
+choice[0] => ~NO_FANOUT~
+choice[1] => ~NO_FANOUT~
+payment[0] => ~NO_FANOUT~
+payment[1] => ~NO_FANOUT~
+payment[2] => ~NO_FANOUT~
+payment[3] => ~NO_FANOUT~
+change[0] <= Result[0].DB_MAX_OUTPUT_PORT_TYPE
+change[1] <= Result[1].DB_MAX_OUTPUT_PORT_TYPE
+change[2] <= Result[2].DB_MAX_OUTPUT_PORT_TYPE
+change[3] <= Result[3].DB_MAX_OUTPUT_PORT_TYPE
+Clock => Clock.IN1
+Binary_Input1[0] => item[0].IN1
+Binary_Input1[1] => item[1].IN1
+Binary_Input2[0] => paid[0].IN1
+Binary_Input2[1] => paid[1].IN1
+Binary_Input2[2] => paid[2].IN1
+Binary_Input2[3] => paid[3].IN1
+o_Segment_A <= SevenSegment:sevenSegment.port2
+o_Segment_B <= SevenSegment:sevenSegment.port3
+o_Segment_C <= SevenSegment:sevenSegment.port4
+o_Segment_D <= SevenSegment:sevenSegment.port5
+o_Segment_E <= SevenSegment:sevenSegment.port6
+o_Segment_F <= SevenSegment:sevenSegment.port7
+o_Segment_G <= SevenSegment:sevenSegment.port8
+
+
+|VendingMachine|ChangeMaker:changeMaker
+reset => ~NO_FANOUT~
+choice[0] => Equal0.IN1
+choice[0] => Equal1.IN0
+choice[0] => Equal2.IN1
+choice[1] => Equal0.IN0
+choice[1] => Equal1.IN1
+choice[1] => Equal2.IN0
+payment[0] => Add1.IN8
+payment[0] => Add3.IN8
+payment[0] => tempchange.DATAB
+payment[0] => tempchange.DATAB
+payment[1] => Add1.IN7
+payment[1] => Add2.IN6
+payment[1] => Add3.IN7
+payment[1] => tempchange.DATAB
+payment[2] => Add0.IN4
+payment[2] => Add1.IN6
+payment[2] => Add2.IN5
+payment[2] => Add3.IN6
+payment[3] => Add0.IN3
+payment[3] => Add1.IN5
+payment[3] => Add2.IN4
+payment[3] => Add3.IN5
+change[0] <= tempchange.DB_MAX_OUTPUT_PORT_TYPE
+change[1] <= tempchange.DB_MAX_OUTPUT_PORT_TYPE
+change[2] <= tempchange.DB_MAX_OUTPUT_PORT_TYPE
+change[3] <= tempchange.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|VendingMachine|SevenSegment:sevenSegment
+i_Clk => ~NO_FANOUT~
+i_Binary_Num[0] => Decoder0.IN3
+i_Binary_Num[1] => Decoder0.IN2
+i_Binary_Num[2] => Decoder0.IN1
+i_Binary_Num[3] => Decoder0.IN0
+o_Segment_A <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
+o_Segment_B <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+o_Segment_C <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+o_Segment_D <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
+o_Segment_E <= WideOr4.DB_MAX_OUTPUT_PORT_TYPE
+o_Segment_F <= WideOr5.DB_MAX_OUTPUT_PORT_TYPE
+o_Segment_G <= WideOr6.DB_MAX_OUTPUT_PORT_TYPE
+
+
